@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "train",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "torch.distributed.run",
+      "cwd": "/XYAIFS00/HDD_POOL/sysu_grwang/sysu_grwang_1/lx/mage",
+      "python": "/XYAIFS00/HDD_POOL/sysu_grwang/sysu_grwang_1/lx/mage/.venv/bin/python",
+      "args": [
+        "--nproc-per-node=auto",
+        "--rdzv-backend=c10d",
+        "--rdzv-endpoint=localhost:0",
+        "main_pretrain.py",
+        "--batch_size=64",
+        "--model=mage_vit_base_patch16",
+        "--mask_ratio_min=0.5",
+        "--mask_ratio_max=1.0",
+        "--mask_ratio_mu=0.55",
+        "--mask_ratio_std=0.25",
+        "--epochs=1600",
+        "--warmup_epochs=40",
+        "--blr=1.5e-4",
+        "--weight_decay=0.05",
+        "--output_dir=output",
+        "--data_path=data",
+        "--dist_url=tcp://127.0.0.1:2214"
+      ],
+      "env": {
+        "CUDA_VISIBLE_DEVICES": "7"
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+torch~=2.2
+torchvision
+numpy<1.20
+albumentations
+opencv-python
+pudb
+imageio
+pytorch-lightning
+omegaconf
+test-tube
+streamlit
+einops
+more-itertools
+transformers
+timm==0.3.2
